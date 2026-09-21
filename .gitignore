@@ -24,3 +24,7 @@ onboarding_growl/data/sspc/
 onboarding_growl/data/Riley_CHE_data/COMPAS_Output.zip
 onboarding_growl/data/vanSon2022_data/COMPAS_Output_wWeights.h5
 onboarding_growl/data/vanSon2022_data/COMPAS_Output_wWeights.tar.gz
+
+# GWTC-5.0 population data release (42 GB, Zenodo 10.5281/zenodo.20292639) -- never commit
+lvk_observations/GWtC-5/
+lvk_observations/GWTC-5/
