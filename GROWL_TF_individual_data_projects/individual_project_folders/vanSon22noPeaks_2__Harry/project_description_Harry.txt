@@ -1,0 +1,260 @@
+GROWL Task Force — Individual Data Project
+Student: Harry
+Dataset: van Son et al. (2022), "No peaks without valleys" — Dataset 2 of 2
+Project folder: vanSon22noPeaks_2__Harry
+Assigned: 24 September 2026
+
+
+YOUR DATASET
+
+Your dataset is the COMPAS simulation suite published with:
+
+    van Son, de Mink, Renzo, Justham, Zapartas, Breivik, Callister, Farr & Conroy (2022),
+    "No peaks without valleys: The stable mass transfer channel for gravitational-wave
+    sources in light of the neutron star-black hole mass gap",
+    The Astrophysical Journal, 940, 184.
+    Paper:  https://doi.org/10.3847/1538-4357/ac9b0a
+    arXiv:  https://arxiv.org/abs/2209.13609
+
+The data you will work with lives here:
+
+    https://zenodo.org/records/7080164          (DOI 10.5281/zenodo.7080164)
+
+    "Dataset 2 of 2: No peaks without valleys: The stable mass transfer channel for
+    gravitational-wave sources in light of the neutron star-black hole mass gap"
+
+    NOTE THAT MARYAM IS DOING DATASET 1 OUT OF 2 — PLEASE COLLABORATE!!!
+    (see the section "WORKING WITH MARYAM" below)
+
+This Zenodo record contains 12 separate COMPAS simulations ("submodels"), each of 10^7
+binaries, stored as one compressed archive per submodel. Each archive unpacks to a single
+HDF5 file called COMPAS_Output_wWeights.h5, of a few gigabytes.
+
+The authors' analysis code is on GitHub:
+
+    https://github.com/LiekeVanSon/LowMBH_and_StableChannel
+
+and the simulation code itself, COMPAS, is documented at:
+
+    https://compas.science/    and    https://compas.readthedocs.io/
+
+Note: there is a companion Zenodo record from the same paper, Dataset 1 of 2
+(10.5281/zenodo.7080725), holding 13 further submodels. That one is Maryam's. You do not
+need to download it. Together the two records hold the 25 submodels the paper describes.
+
+
+IMPORTANT: START WITH ONE MODEL ONLY
+
+Please start with a SINGLE submodel from your Zenodo record:
+
+    faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2012SNDELAYED      (2.19 GB archive)
+
+This is the paper's FIDUCIAL model — the reference simulation that every other submodel in
+both records is a variation of. It happens to live in your record, which makes your file the
+natural reference point for the whole cohort: when Maryam or anyone else sees a difference in
+their variation, it is your numbers they should be comparing against.
+
+It also gives you a real check to aim for: your first mass-distribution plot should reproduce
+the pink distribution in Figure 1 of the paper. If it does not, something is off — and working
+out what is exactly the kind of thing to bring to the group.
+
+Download and investigate that one, and IGNORE THE DATA OF ALL THE OTHER SUBMODELS for now.
+We will get to the others later — there is real value in understanding one dataset properly
+before multiplying the work by twelve.
+
+This does not mean ignoring that the others exist. As part of Step 1 we do ask you to make a
+LIST of all the submodels in the record and to work out what distinguishes them (the archive
+names encode which physics parameter was varied). That list is quick, and it is useful. It is
+only the downloading and analysing of the other files that we are postponing.
+
+For reference, the 12 archives in your record are:
+
+    faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2012SNDELAYED        2.19 GB   <- FIDUCIAL, start here
+    faccFIXEDbeta0.25zetaHG6.0RemMassFRYER2012SNDELAYED       2.77 GB   beta_acc = 0.25
+    faccFIXEDbeta0.75zetaHG6.0RemMassFRYER2012SNDELAYED       2.07 GB   beta_acc = 0.75
+    faccFIXEDbeta1.0zetaHG6.0RemMassFRYER2012SNDELAYED        2.17 GB   beta_acc = 1.0
+    faccFIXEDbeta0.5zetaHG6.5RemMassFRYER2012SNDELAYED        2.24 GB   zeta_eff = 6.5
+    faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2022fmix0.5SNDELAYED 2.05 GB   Fryer+22, f_mix = 0.5
+    faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2022fmix0.7SNDELAYED 2.24 GB   Fryer+22, f_mix = 0.7
+    faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2022fmix1.0SNDELAYED 2.42 GB   Fryer+22, f_mix = 1.0
+    faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2022fmix1.4SNDELAYED 2.52 GB   Fryer+22, f_mix = 1.4
+    faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2022fmix2.0SNDELAYED 2.63 GB   Fryer+22, f_mix = 2.0
+    faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2022fmix2.8SNDELAYED 2.68 GB   Fryer+22, f_mix = 2.8
+    faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2022fmix4.0SNDELAYED 2.72 GB   Fryer+22, f_mix = 4.0
+
+(Decoding those names is part of Task A — the list above is a head start, not a substitute.)
+
+
+WHAT TO DO FIRST: STEP 1
+
+Your first task is Step 1 of the task force sequence: download and investigate the data.
+
+Everything you need is in the notebooks that are already in your project folder:
+
+    GROWL_TF_individual_data_projects/individual_project_folders/
+        vanSon22noPeaks_2__Harry/step1_vanSon22noPeaks_Harry.ipynb
+        vanSon22noPeaks_2__Harry/vanSon22noPeaks_part2_zetaHG6_0_fiducial.ipynb
+
+The first is the step-1 instruction notebook; the second walks through your data file in more
+detail once you have downloaded it. Both are your personal copies — edit them, fill them in,
+and hand them back filled in.
+
+  !! One warning about the second notebook: it was written against MARYAM's file, so every
+     number in its text (row counts, weights, rates) is HERS, not yours. Its outputs have been
+     cleared on purpose. Set DATA_PATH to your file, run it from the top, read your own numbers,
+     and correct any statement that does not match. That checking IS the task, not a chore.
+
+Step 1 walks you through seven tasks (A to G), each with empty tables to complete and a worked
+example you can expand if you get stuck:
+
+    A. Where does this dataset come from? Paper, data DOIs, code, contacts, and the list of
+       all submodels with their names decoded.
+    B. Write your file paths down as a Python dictionary, so anyone else can open your data by
+       changing a single line.
+    C. Download the data, and log EXACTLY how you did it, step by step, including anything that
+       went wrong. Future students will follow your recipe literally.
+    D. Read the paper and summarise it: the goal and findings, which double compact object types
+       it studies, the authors, and a figure-by-figure list of what is plotted.
+    E. Read the methods section and fill in the shared metadata table (this is the big one, see
+       below).
+    F. Open the file, list every group and column, and compare it with the dataset we all used in
+       onboarding tutorial 2: what is added, what is missing, are there weights, are the initial
+       separations there?
+    G. Write the dataset summary card that goes into the GROWL catalog.
+
+Step 1 is deliberately focused on METADATA rather than on physics results. Before anyone can do
+science with a dataset, somebody has to establish what is actually in it and what assumptions
+produced it. That is what you are doing, and it is genuinely useful work — the metadata table is
+one of the main things the GROWL catalog contributes to the field.
+
+Please do not wait until you have finished all seven tasks to show us something. Bring partial
+results to the group meeting: we would much rather see Task A and B done and discussed than
+wait three weeks for everything at once.
+
+
+WORKING WITH MARYAM
+
+You and Maryam have the two halves of the same publication. Same paper, same code (COMPAS
+v02.26.03), same people who made it, same file format, same physics — the only difference is
+which submodels ended up in which Zenodo record. This is a gift: almost everything either of
+you figures out applies directly to the other's dataset.
+
+So please treat this as one shared effort rather than two parallel ones:
+
+  * Split the reading, not the verifying. There is one paper behind both datasets. You can
+    divide up who reads which section closely and then teach each other — but each of you must
+    still personally check anything that goes into YOUR metadata row (see the rule below).
+
+  * Share the download recipe. Task C asks each of you to write down exactly how you got the
+    data. The archives sit on the same Zenodo pages and behave the same way, so whoever
+    downloads first should hand the other a working recipe, including what went wrong.
+
+  * Compare the file structure. Task F asks what is in the file and what is missing. If your
+    file and Maryam's differ in their groups or columns, that is a genuinely interesting finding
+    about how the data was published and we want to hear about it. If they match, that is worth
+    knowing too — it means one description covers 25 submodels.
+
+  * Compare your numbers once you both have them. Yours is the fiducial model; Maryam's is a
+    zeta_eff = 4.5 variation, meaning mass transfer becomes unstable more easily in hers. So a
+    difference between your two files is not noise — it is the physical effect of that one
+    parameter. What happens to the number of black-hole binaries? To the fraction formed through
+    the stable channel? To the local merger rate? Those comparisons are real science and neither
+    of you can do them alone.
+
+  * Do not duplicate the boring parts. Decoding the naming convention, finding the GitHub repo,
+    working out what MT_Donor_Hist means, tracking down which earlier paper the initial
+    conditions come from — do that once, together, and write it down once.
+
+  * Bring a joint update to group meeting. "Here is what our two halves of van Son 2022 look
+    like, here is where they agree, here is where they do not" is a much stronger five minutes
+    than two separate status reports.
+
+One caveat, and it matters: collaborating on understanding is encouraged; copying entries is
+not. If Maryam tells you her file has no BSE_System_Parameters group, that is a useful heads-up
+about what to look for — it is not evidence about YOUR file. Open yours and look.
+
+
+WHERE THIS FITS IN THE BIGGER PICTURE
+
+Two documents give you the wider context, and you should read both alongside this one:
+
+  * "GROWL Task Force — Main Project: Characterizing a COMPAS dataset, from raw data to merger
+    rates and observational comparison" — the roadmap card for your whole project, Stage 0
+    through Stage 9. Step 1 corresponds to Stages 0, 1 and 2 on that card (and feeds Stage 9's
+    metadata table). Use this in case you are curious about future steps. Though note we are
+    still editing this.
+        GROWL_Taskforce_MainProject_TEMPLATE.docx
+
+  * "GROWL Task Force, explained" — why the catalog exists at all: the field has a
+    "simulation silos" problem, where different groups' simulations cannot be compared because
+    their assumptions are undocumented. Your dataset is one tile in the mosaic that fixes it.
+        Gravitational Wave Task Force: Goals and Motivation
+
+Short version: every population synthesis dataset encodes a set of choices about massive binary
+physics. If nobody writes those choices down in a comparable way, two simulations that disagree
+cannot be diagnosed. You are writing them down for this dataset.
+
+
+ON USING LLMs — AND THE ONE RULE THAT MATTERS
+
+You are very welcome to use ChatGPT, Claude / Claude Code or similar tools while you work, and
+we know many of you do (and we use them too, as you have likely noticed). They are good at
+explaining an unfamiliar passage, suggesting what a piece of jargon means, or helping you get
+unstuck on Python. We are also quite good at recognising when they have been used — and we
+think that is fine.
+
+But there is one rule, and for us it is non-negotiable:
+
+    EVERYTHING YOU WRITE DOWN, AND THAT GOES INTO THE GROWL CATALOG, MUST BE VERIFIED BY YOU,
+    AS A HUMAN, AGAINST THE PAPER OR THE DATA ITSELF.
+
+Concretely: if you are about to enter in the metadata table that this dataset's initial masses
+range from 5 to 150 solar masses, then you must have gone into the data, run it yourself, and
+checked line by line that this is actually true — or found the statement in the paper and be
+able to say which section it is in. Not "the LLM said so". Not "Maryam's dataset had that".
+Not "it seemed reasonable".
+
+Why we are so firm about this: your work is intended to become part of a publication, and to
+become a catalog that other researchers will build on without re-checking it. A table full of
+plausible-looking but unverified numbers is worse than an empty table, because nobody will ever
+think to question it. Language models are confidently wrong in exactly the way that is hardest
+to catch — they invent citations, they mix up similar papers by the same authors, and they
+produce numbers that appear nowhere in the source.
+
+So in the notebook you will see, for every entry, a "Source" column and a "Confidence" column.
+Please use them honestly. Recording "not stated in the paper — I could not find this" is a
+genuinely valuable result and costs you nothing. Guessing costs everybody.
+
+And one real example from this very dataset, so you know this is not hypothetical. The paper
+does not state its initial mass range directly — it refers you to an earlier paper, which says
+10 to 150 solar masses. But when we opened Maryam's file, it contained stars born at 5.06 solar
+masses, so the inherited number is wrong for that run. Is it also wrong for yours? We have not
+checked — that is your job, and it is a good first thing to look at. That is exactly the kind of
+thing we need you to catch, and exactly the kind of thing that usually only gets caught by a
+human opening the file.
+
+
+YOU ARE NOT DOING THIS ALONE
+
+Step 1 is meant to be done in conversation with us, not in isolation.
+
+  * Ask questions on Discord as soon as you are unsure — genuinely, as soon as. These papers
+    assume years of background that nobody expects you to have yet. Asking early is the fastest
+    route, and it is what the channel is for.
+  * Talk to Maryam constantly (see "WORKING WITH MARYAM" above). She is working on the other
+    half of your dataset and will hit the same problems days before or after you do.
+  * We will pair you with one of our experts to help verify your results and to help you where
+    you get stuck. Particularly for Task E (the metadata table), plan on going through your
+    entries together with them before you consider it done.
+  * If something in the data looks strange, confusing, or contradictory: write it down and bring
+    it. Every dataset in the catalog has quirks, and the person who finds them is doing the whole
+    task force a favour.
+
+
+A REALISTIC EXPECTATION
+
+Nothing here is a test, and Step 1 is not a race. Downloading several gigabytes over an unstable
+connection, decoding a filename like "faccFIXEDbeta0.5zetaHG6.0RemMassFRYER2012SNDELAYED", and
+working out what a column called MT_Donor_Hist(1) means are all genuinely fiddly. Budget time for
+it, write down the difficulties as you hit them (Task C asks for exactly that), and ask for help
+early rather than late.
